@@ -1,6 +1,8 @@
 # Claude Usage
 
-Calculate your Claude Max subscription usage from [OpenClaw](https://openclaw.ai) session data.
+Calculate your [Claude Max](https://claude.ai) subscription usage from [OpenClaw](https://openclaw.ai) session data.
+
+> **Built for OpenClaw** — This tool reads OpenClaw session JSONL transcripts to calculate Claude API credit consumption. It requires an [OpenClaw](https://openclaw.ai) installation with active sessions.
 
 Track credits consumed, rate limits, and per-session breakdown based on the reverse-engineered credits system from [she-llac.com/claude-limits](https://she-llac.com/claude-limits).
 
@@ -16,6 +18,10 @@ Track credits consumed, rate limits, and per-session breakdown based on the reve
 ## Install
 
 ```bash
+# npm (global CLI)
+npm install -g claude-usage
+
+# Or as an OpenClaw skill via ClawHub
 npx clawhub@latest install claude-usage
 ```
 
@@ -23,20 +29,22 @@ npx clawhub@latest install claude-usage
 
 ```bash
 # First time — save your reset time (from claude.ai Settings > Usage)
-python3 scripts/claude-usage.py "2026-02-09 14:00" --plan 5x --save
+claude-usage "2026-02-09 14:00" --plan 5x --save
 
 # After saving, just run:
-python3 scripts/claude-usage.py
+claude-usage
 
 # Top 5 sessions only
-python3 scripts/claude-usage.py --top 5
+claude-usage --top 5
 
 # Single session detail
-python3 scripts/claude-usage.py --session "main"
+claude-usage --session "main"
 
 # JSON output
-python3 scripts/claude-usage.py --json
+claude-usage --json
 ```
+
+> You can also run the Python script directly: `python3 scripts/claude-usage.py [args]`
 
 ## Example Output
 
