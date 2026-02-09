@@ -17,6 +17,7 @@ Based on: https://she-llac.com/claude-limits
 import json, glob, os, sys, argparse, math
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from typing import Optional
 
 # --- Credits rates (reverse-engineered) ---
 # credits = (input_tokens + cache_write_tokens) * input_rate + output_tokens * output_rate
@@ -36,7 +37,7 @@ PLANS = {
 CONFIG_PATH = os.path.expanduser("~/.openclaw/claude-usage.json")
 
 
-def get_tier(model_name: str) -> str | None:
+def get_tier(model_name: str) -> Optional[str]:
     m = model_name.lower()
     if "opus" in m: return "opus"
     if "sonnet" in m: return "sonnet"
