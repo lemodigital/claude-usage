@@ -1,6 +1,6 @@
 {
   "name": "openclaw-claude-usage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Claude Max subscription usage calculator for OpenClaw agents",
   "bin": {
     "claude-usage": "./bin/claude-usage.js"
